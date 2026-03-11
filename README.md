@@ -28,13 +28,12 @@ The script copies these files into `~/.config/opencode/skills/notification/`:
 | `SKILL.md` | Skill definition — instructions for the agent |
 | `notify.sh` | Script that plays sound and shows the alert |
 | `config.json` | Your configuration (edit this to customize) |
-| `logo.png` | OpenCode logo shown in notification banners |
 
 OpenCode will discover the skill automatically on the next session.
 
 ## How it works
 
-The skill instructs the agent to run `notify.sh input` before asking questions or requesting permissions, and `notify.sh done` when it finishes all work. The script plays a system sound via `afplay` and shows a macOS notification banner with the OpenCode logo via `osascript`.
+The skill instructs the agent to run `notify.sh input` before asking questions or requesting permissions, and `notify.sh done` when it finishes all work. The script fires a macOS notification banner and plays a system sound simultaneously via `osascript` and `afplay`.
 
 ## Configure
 
@@ -64,7 +63,7 @@ Edit `~/.config/opencode/skills/notification/config.json`:
 | `done_alert_title` | string | Notification title for done events |
 | `done_alert_message` | string | Notification body for done events |
 
-Set `input_sound` / `done_sound` to `null` to use the system default (Sosumi / Glass).
+Set `input_sound` / `done_sound` to `null` to fall back to system defaults (Sosumi / Glass).
 
 **Available built-in macOS sounds** (all in `/System/Library/Sounds/`):
 `Basso`, `Blow`, `Bottle`, `Frog`, `Funk`, `Glass`, `Hero`, `Morse`, `Ping`, `Pop`, `Purr`, `Sosumi`, `Submarine`, `Tink`
