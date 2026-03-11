@@ -26,6 +26,7 @@ bash ~/.config/opencode/skills/notification/notify.sh done
 - For permission requests: run the notify script in the **same** response as the tool call that triggers the permission dialog. This way the sound plays right when the permission prompt appears.
 - Do NOT notify on intermediate progress updates where you are continuing to work.
 - Do NOT notify when you are simply responding to a conversational message with no action items.
+- Do NOT run the `done` notification if you are a subagent — only the top-level agent talking directly to the user should fire `done`.
 - The `input` notification covers: permission prompts, tool-approval dialogs, questions, ambiguous instructions needing clarification, and presenting options for the user to choose from.
 - The `done` notification covers: task completion, final summaries, and "all done" messages where you have no more work queued.
 - If a single message both completes work AND asks a follow-up question, use `input` (the question takes priority).
