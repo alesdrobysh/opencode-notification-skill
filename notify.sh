@@ -53,14 +53,14 @@ else:
 play_sound() {
   local sound_file="$1"
   if [[ -f "$sound_file" ]]; then
-    afplay "$sound_file" &
+    afplay "$sound_file"
   fi
 }
 
 show_alert() {
   local title="$1"
   local message="$2"
-  osascript -e "display notification \"$message\" with title \"$title\"" 2>/dev/null
+  osascript -e "display notification \"$message\" with title \"$title\"" 2>/dev/null &
 }
 
 get_sound_file() {
