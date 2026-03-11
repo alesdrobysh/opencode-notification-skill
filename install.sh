@@ -1,25 +1,37 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-DEST="$HOME/.config/opencode/skills/notification"
+SKILL_DEST="$HOME/.config/opencode/skills/notification"
+AGENTS_DEST="$HOME/.config/opencode/AGENTS.md"
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
-if [[ -d "$DEST" ]]; then
-  echo "Already installed at $DEST"
+if [[ -d "$SKILL_DEST" ]]; then
+  echo "Already installed at $SKILL_DEST"
   echo "To reinstall, remove that directory first:"
-  echo "  rm -rf \"$DEST\""
+  echo "  rm -rf \"$SKILL_DEST\""
   exit 1
 fi
 
-mkdir -p "$DEST"
-cp "$SCRIPT_DIR/SKILL.md"   "$DEST/SKILL.md"
-cp "$SCRIPT_DIR/notify.sh"  "$DEST/notify.sh"
-cp "$SCRIPT_DIR/config.json" "$DEST/config.json"
-cp "$SCRIPT_DIR/logo.png"   "$DEST/logo.png"
-chmod +x "$DEST/notify.sh"
+mkdir -p "$SKILL_DEST"
+cp "$SCRIPT_DIR/SKILL.md"    "$SKILL_DEST/SKILL.md"
+cp "$SCRIPT_DIR/notify.sh"   "$SKILL_DEST/notify.sh"
+cp "$SCRIPT_DIR/config.json" "$SKILL_DEST/config.json"
+cp "$SCRIPT_DIR/logo.png"    "$SKILL_DEST/logo.png"
+chmod +x "$SKILL_DEST/notify.sh"
 
-echo "Installed to $DEST"
+# Install global AGENTS.md (the agent instructions loaded every session)
+if [[ -f "$AGENTS_DEST" ]]; then
+  echo ""
+  echo "WARNING: $AGENTS_DEST already exists."
+  echo "Add the contents of AGENTS.md from this repo to that file manually."
+else
+  cp "$SCRIPT_DIR/AGENTS.md" "$AGENTS_DEST"
+  echo "Installed agent instructions to $AGENTS_DEST"
+fi
+
+echo ""
+echo "Installed skill to $SKILL_DEST"
 echo "OpenCode will pick it up on the next session."
 echo ""
 echo "To configure, edit:"
-echo "  $DEST/config.json"
+echo "  $SKILL_DEST/config.json"

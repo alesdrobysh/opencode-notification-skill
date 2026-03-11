@@ -21,11 +21,13 @@ cd opencode-notification-skill
 bash install.sh
 ```
 
-OpenCode will discover the skill automatically on the next session.
+The installer copies the skill files into `~/.config/opencode/skills/notification/` and places `AGENTS.md` at `~/.config/opencode/AGENTS.md`. If a global `AGENTS.md` already exists, you will need to append the contents of `AGENTS.md` from this repo to it manually.
+
+OpenCode loads the global `AGENTS.md` automatically in every session — no manual skill invocation required.
 
 ## How it works
 
-The skill instructs the agent to run `notify.sh input` before asking questions or requesting permissions, and `notify.sh done` when it finishes all work. The script fires a macOS notification banner and plays a system sound simultaneously via `osascript` and `afplay`.
+`~/.config/opencode/AGENTS.md` instructs the agent to run `notify.sh input` before asking questions or requesting permissions, and `notify.sh done` when it finishes all work. The script fires a macOS notification banner and plays a system sound simultaneously via `osascript` and `afplay`.
 
 ## Configure
 
