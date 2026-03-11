@@ -1,0 +1,10 @@
+{
+  "sound_enabled": true,
+  "alert_enabled": true,
+  "input_sound": "/System/Library/Sounds/Ping.aiff",
+  "done_sound": "/System/Library/Sounds/Tink.aiff",
+  "input_alert_title": "OpenCode",
+  "input_alert_message": "User input required",
+  "done_alert_title": "OpenCode",
+  "done_alert_message": "Work complete"
+}
