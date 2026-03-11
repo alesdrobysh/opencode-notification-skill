@@ -13,14 +13,24 @@ An [OpenCode](https://opencode.ai) agent skill that plays sounds and shows macOS
 
 ## Install
 
-Copy the skill into your global OpenCode skills directory:
+Clone the repo and run the install script:
 
 ```bash
-git clone https://github.com/alesdrobysh/opencode-notification-skill.git \
-  ~/.config/opencode/skills/notification
+git clone https://github.com/alesdrobysh/opencode-notification-skill.git
+cd opencode-notification-skill
+bash install.sh
 ```
 
-That's it. OpenCode will discover the skill automatically on the next session.
+The script copies these files into `~/.config/opencode/skills/notification/`:
+
+| File | Description |
+|---|---|
+| `SKILL.md` | Skill definition — instructions for the agent |
+| `notify.sh` | Script that plays sound and shows the alert |
+| `config.json` | Your configuration (edit this to customize) |
+| `logo.png` | OpenCode logo shown in notification banners |
+
+OpenCode will discover the skill automatically on the next session.
 
 ## How it works
 
