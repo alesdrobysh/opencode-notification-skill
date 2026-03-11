@@ -60,7 +60,7 @@ play_sound() {
 show_alert() {
   local title="$1"
   local message="$2"
-  osascript -e "display notification \"$message\" with title \"$title\"" &>/dev/null &
+  osascript -e "display notification \"$message\" with title \"$title\"" 2>/dev/null
 }
 
 get_sound_file() {
