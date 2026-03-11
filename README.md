@@ -21,14 +21,6 @@ cd opencode-notification-skill
 bash install.sh
 ```
 
-The script copies these files into `~/.config/opencode/skills/notification/`:
-
-| File | Description |
-|---|---|
-| `SKILL.md` | Skill definition — instructions for the agent |
-| `notify.sh` | Script that plays sound and shows the alert |
-| `config.json` | Your configuration (edit this to customize) |
-
 OpenCode will discover the skill automatically on the next session.
 
 ## How it works
@@ -51,17 +43,6 @@ Edit `~/.config/opencode/skills/notification/config.json`:
   "done_alert_message": "Work complete"
 }
 ```
-
-| Key | Type | Description |
-|---|---|---|
-| `sound_enabled` | bool | Play audio cues |
-| `alert_enabled` | bool | Show macOS notification banners |
-| `input_sound` | string | Path to sound file for input/permission events |
-| `done_sound` | string | Path to sound file for work-complete events |
-| `input_alert_title` | string | Notification title for input events |
-| `input_alert_message` | string | Notification body for input events |
-| `done_alert_title` | string | Notification title for done events |
-| `done_alert_message` | string | Notification body for done events |
 
 Set `input_sound` / `done_sound` to `null` to fall back to system defaults (Sosumi / Glass).
 
