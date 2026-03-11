@@ -21,7 +21,7 @@ cd opencode-notification-skill
 bash install.sh
 ```
 
-The installer copies the skill files into `~/.config/opencode/skills/notification/` and places `AGENTS.md` at `~/.config/opencode/AGENTS.md`. If a global `AGENTS.md` already exists, you will need to append the contents of `AGENTS.md` from this repo to it manually.
+The installer copies the skill files into `~/.config/opencode/skills/notification/` and appends the notification instructions to `~/.config/opencode/AGENTS.md` (creating it if it doesn't exist).
 
 OpenCode loads the global `AGENTS.md` automatically in every session — no manual skill invocation required.
 

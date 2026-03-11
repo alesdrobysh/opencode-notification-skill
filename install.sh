@@ -21,9 +21,9 @@ chmod +x "$SKILL_DEST/notify.sh"
 
 # Install global AGENTS.md (the agent instructions loaded every session)
 if [[ -f "$AGENTS_DEST" ]]; then
-  echo ""
-  echo "WARNING: $AGENTS_DEST already exists."
-  echo "Add the contents of AGENTS.md from this repo to that file manually."
+  printf '\n' >> "$AGENTS_DEST"
+  cat "$SCRIPT_DIR/AGENTS.md" >> "$AGENTS_DEST"
+  echo "Appended notification instructions to $AGENTS_DEST"
 else
   cp "$SCRIPT_DIR/AGENTS.md" "$AGENTS_DEST"
   echo "Installed agent instructions to $AGENTS_DEST"
